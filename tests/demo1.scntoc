@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+
+<xsi_file type="SceneTOC" xsi_version="12.0.921.0" syntax_version="2.0">
+   <Models>
+      <Model name="MultipleResolutionAsset" active_resolution="2">
+         <resolution name="Offloaded" id="0" href=""></resolution>
+         <resolution name="rigging" id="1" href="file:////server/share/project/asset/Models/published/rig/asset_rig_v001.emdl"></resolution>
+         <resolution name="lookdev" id="2" href="file:////server/share/project/asset/Models/published/lookdev/asset_lookdev_v001.emdl"></resolution>
+      </Model>
+      <Model name="YetAnotherAsset" active_resolution="0">
+         <resolution name="Offloaded" id="0" href=""></resolution>
+         <resolution name="rigging" id="1" href="file:////server/share/project/asset/Models/published/rig/asset_rig_latest.emdl"></resolution>
+      </Model>
+      <Model name="riggedAsset" active_resolution="1">
+         <resolution name="Offloaded" id="0" href=""></resolution>
+         <resolution name="rigging" id="1" href="file:////server/share/project/asset/Models/published/rig/asset_rig_latest.emdl"></resolution>
+      </Model>
+      <Model name="A_model" active_resolution="1">
+         <resolution name="Offloaded" id="0" href=""></resolution>
+         <resolution name="rigging" id="1" href="file:////server/share/project/asset/Models/published/model/asset_model_v001.emdl"></resolution>
+      </Model>
+      <Model name="env_asset" active_resolution="0">
+         <resolution name="Offloaded" id="0" href=""></resolution>
+      </Model>
+
+   </Models>
+   <Sources>
+      <Image name="noIcon_pic">$XSI_HOME/Application/rsrc/noIcon.pic</Image>
+      <Image name="screensafe-low-end_png">C:\path\to\screensafe-low-end.png</Image>
+      <Image name="eye_bNw_tga5">Pictures\eye_bNw.tga</Image>
+      <Audio name="dgt_seq150_v001_wav">\\server\share\project\sequence\audio\seq_audio.wav</Audio>
+   </Sources>
+   <Passes>
+      <RenderOptions name="RenderOptions">
+         <Renderer>Mental Ray</Renderer>
+         <OutputDir>[Project Path]/Render_Pictures</OutputDir>
+         <FramePadding>1</FramePadding>
+         <ImageFormatPreset>-16</ImageFormatPreset>
+         <ImageAspectRatio>1.77778</ImageAspectRatio>
+         <ImageWidth>1440</ImageWidth>
+         <ImageHeight>810</ImageHeight>
+         <ImagePixelRatio>1</ImagePixelRatio>
+         <ImageLockAspectRatio>1</ImageLockAspectRatio>
+         <FrameRangeSource>0</FrameRangeSource>
+         <FrameStart>1</FrameStart>
+         <FrameEnd>100</FrameEnd>
+         <FrameStep>1</FrameStep>
+         <FrameSet>1-100</FrameSet>
+         <FieldEnable>0</FieldEnable>
+         <FieldOrder>0</FieldOrder>
+         <FieldInterleave>0</FieldInterleave>
+         <MotionBlurShutterSpeed>0.5</MotionBlurShutterSpeed>
+         <MotionBlurShutterOffset>0</MotionBlurShutterOffset>
+         <MotionBlurShutterType>0</MotionBlurShutterType>
+         <MotionBlurDeformation>1</MotionBlurDeformation>
+      </RenderOptions>
+      <RenderOptions name="HardwareRenderer">
+         <RenderType>OpenGL</RenderType>
+         <BackgroundColorRed>0</BackgroundColorRed>
+         <BackgroundColorGreen>0</BackgroundColorGreen>
+         <BackgroundColorBlue>0</BackgroundColorBlue>
+         <BackgroundColorAlpha>0</BackgroundColorAlpha>
+         <Oversampling>7</Oversampling>
+         <ShadowmapEnable>1</ShadowmapEnable>
+         <ShadowmapSize>512</ShadowmapSize>
+      </RenderOptions>
+      <RenderOptions name="mentalray">
+         <RenderType>0</RenderType>
+         <IndirectIllumAlgorithm>0</IndirectIllumAlgorithm>
+         <Scanline>1</Scanline>
+         <SamplesContrastRed>0.2</SamplesContrastRed>
+         <SamplesContrastGreen>0.2</SamplesContrastGreen>
+         <SamplesContrastBlue>0.2</SamplesContrastBlue>
+         <SamplesContrastAlpha>0.2</SamplesContrastAlpha>
+         <SamplesMin>-1</SamplesMin>
+         <SamplesMax>1</SamplesMax>
+         <RasterizerShadingSamples>4</RasterizerShadingSamples>
+         <RasterizerPixelSamples>4</RasterizerPixelSamples>
+         <RasterizerMotionSamples>1</RasterizerMotionSamples>
+         <RasterizerMotionFactor>0</RasterizerMotionFactor>
+         <RasterizerMaxDepth>0</RasterizerMaxDepth>
+         <UnifiedSampling>0</UnifiedSampling>
+         <UnifiedSamplesMin>0.5</UnifiedSamplesMin>
+         <UnifiedSamplesMax>5</UnifiedSamplesMax>
+         <UnifiedSamplesQuality>0.5</UnifiedSamplesQuality>
+         <UnifiedSamplesErrorCutoff>0</UnifiedSamplesErrorCutoff>
+         <Trace>1</Trace>
+         <MotionSamples>5</MotionSamples>
+         <SamplesFilterType>2</SamplesFilterType>
+         <SamplesFilterSize>3</SamplesFilterSize>
+         <SamplesJitter>1</SamplesJitter>
+         <FGEnable>0</FGEnable>
+         <AmbientOcclusionEnable>1</AmbientOcclusionEnable>
+         <GPUAmbientOcclusionEnable>0</GPUAmbientOcclusionEnable>
+         <GPUAmbientOcclusionOutput></GPUAmbientOcclusionOutput>
+         <ImportonEnable>0</ImportonEnable>
+         <ImportonTraceThrough>1</ImportonTraceThrough>
+         <GIEnable>0</GIEnable>
+         <CausticEnable>0</CausticEnable>
+         <IPEnable>0</IPEnable>
+      </RenderOptions>
+      <Pass name="Default_Pass">
+         <Camera>seq_cam</Camera>
+         <Renderer></Renderer>
+         <ImageFormatOverride>0</ImageFormatOverride>
+         <ImageFormatPreset>-16</ImageFormatPreset>
+         <ImageAspectRatio>1.77778</ImageAspectRatio>
+         <ImageWidth>1920</ImageWidth>
+         <ImageHeight>1080</ImageHeight>
+         <ImagePixelRatio>1</ImagePixelRatio>
+         <ImageLockAspectRatio>1</ImageLockAspectRatio>
+         <FrameRangeSource>3</FrameRangeSource>
+         <FrameStart>1</FrameStart>
+         <FrameEnd>100</FrameEnd>
+         <FrameStep>1</FrameStep>
+         <FrameSet>1-100</FrameSet>
+         <FrameSkipRendered>0</FrameSkipRendered>
+         <FieldOverride>0</FieldOverride>
+         <FieldEnable>0</FieldEnable>
+         <FieldOrder>0</FieldOrder>
+         <FieldInterleave>0</FieldInterleave>
+         <CropWindowEnabled>0</CropWindowEnabled>
+         <CropWindowOffsetX>0</CropWindowOffsetX>
+         <CropWindowOffsetY>0</CropWindowOffsetY>
+         <CropWindowWidth>1440</CropWindowWidth>
+         <CropWindowHeight>810</CropWindowHeight>
+         <SelectionTracking>0</SelectionTracking>
+         <SelectionOnly>0</SelectionOnly>
+         <MotionBlur>0</MotionBlur>
+         <MotionBlurOverride>0</MotionBlurOverride>
+         <MotionBlurShutterSpeed>0.5</MotionBlurShutterSpeed>
+         <MotionBlurShutterOffset>0</MotionBlurShutterOffset>
+         <MotionBlurShutterType>0</MotionBlurShutterType>
+         <MotionBlurDeformation>1</MotionBlurDeformation>
+         <FrameBuffers>
+            <FrameBuffer name="Main">
+               <RenderChannel>Main</RenderChannel>
+               <Enabled>1</Enabled>
+               <Filename>[Pass]_[Framebuffer]</Filename>
+               <Format>pic</Format>
+               <DataType>RGBA</DataType>
+               <BitDepth>3</BitDepth>
+            </FrameBuffer>
+         </FrameBuffers>
+      </Pass>
+      <Pass name="SecondPass">
+         <Camera>seq_cam</Camera>
+         <Renderer></Renderer>
+         <ImageFormatOverride>0</ImageFormatOverride>
+         <ImageFormatPreset>-16</ImageFormatPreset>
+         <ImageAspectRatio>1.77778</ImageAspectRatio>
+         <ImageWidth>1920</ImageWidth>
+         <ImageHeight>1080</ImageHeight>
+         <ImagePixelRatio>1</ImagePixelRatio>
+         <ImageLockAspectRatio>1</ImageLockAspectRatio>
+         <FrameRangeSource>3</FrameRangeSource>
+         <FrameStart>1</FrameStart>
+         <FrameEnd>100</FrameEnd>
+         <FrameStep>1</FrameStep>
+         <FrameSet>1-100</FrameSet>
+         <FrameSkipRendered>0</FrameSkipRendered>
+         <FieldOverride>0</FieldOverride>
+         <FieldEnable>0</FieldEnable>
+         <FieldOrder>0</FieldOrder>
+         <FieldInterleave>0</FieldInterleave>
+         <CropWindowEnabled>0</CropWindowEnabled>
+         <CropWindowOffsetX>1439</CropWindowOffsetX>
+         <CropWindowOffsetY>0</CropWindowOffsetY>
+         <CropWindowWidth>1440</CropWindowWidth>
+         <CropWindowHeight>810</CropWindowHeight>
+         <SelectionTracking>0</SelectionTracking>
+         <SelectionOnly>0</SelectionOnly>
+         <MotionBlur>0</MotionBlur>
+         <MotionBlurOverride>0</MotionBlurOverride>
+         <MotionBlurShutterSpeed>0.5</MotionBlurShutterSpeed>
+         <MotionBlurShutterOffset>0</MotionBlurShutterOffset>
+         <MotionBlurShutterType>0</MotionBlurShutterType>
+         <MotionBlurDeformation>1</MotionBlurDeformation>
+         <FrameBuffers>
+            <FrameBuffer name="Main">
+               <RenderChannel>Main</RenderChannel>
+               <Enabled>1</Enabled>
+               <Filename>[Pass]_[Framebuffer]</Filename>
+               <Format>pic</Format>
+               <DataType>RGBA</DataType>
+               <BitDepth>3</BitDepth>
+            </FrameBuffer>
+         </FrameBuffers>
+      </Pass>
+   </Passes>
+   <ParametersValues>
+      <Param name="Passes.current">Passes.Default_Pass</Param>
+      <Param name="PlayControl.Rate">25.000000</Param>
+   </ParametersValues>
+   <PostLoadScript>
+      <Language>VBScript</Language>
+      <Function></Function>
+      <Script_Content></Script_Content>
+   </PostLoadScript>
+   <SceneInfo>
+      <LicenseRequired>Essential</LicenseRequired>
+   </SceneInfo>
+   <CompoundOverride>
+      <Compound classname="Get Point Position" version=""></Compound>
+      <Compound classname="Get Weight Map Value" version=""></Compound>
+      <Compound classname="Increment Rotation with 2 Vectors" version=""></Compound>
+      <Compound classname="Init Particle Data" version=""></Compound>
+   </CompoundOverride>
+</xsi_file>
