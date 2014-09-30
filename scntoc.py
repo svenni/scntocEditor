@@ -157,7 +157,13 @@ class SCNTOC(object):
         self._scntocPath = ''
 
     @classmethod
-    def from_file(cls, path_to_scntoc):
+    def from_file(cls, path_to_scntoc, backup=False):
+        # if we want to backup then copy dat file
+        if backup:
+            import shutil
+            backup_name = path_to_scntoc + '.bak'
+            shutil.copy(path_to_scntoc, backup_name)
+
         tree = ET.parse(path_to_scntoc)
         s = SCNTOC()
 

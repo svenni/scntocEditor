@@ -19,9 +19,9 @@ def prettify(elem):
     return reparsed.toprettyxml(indent="  ")
 
 
-class ScntocEditor(QtGui.QWidget):
+class ScntocEditor(QtGui.QDialog):
     def __init__(self, parent=None, scntoc_object=None):
-        QtGui.QWidget.__init__(self, parent)
+        QtGui.QDialog.__init__(self, parent)
         self._scntoc = scntoc_object
 
         self.resize(900, 500)
@@ -37,7 +37,7 @@ class ScntocEditor(QtGui.QWidget):
         self.tree = QtGui.QTreeWidget(self)
         self.tree.setColumnCount(2)
         self.tree.setHeaderHidden(True)
-        self.tree.setAlternatingRowColors(True)
+        #self.tree.setAlternatingRowColors(True)
         self.tree.itemChanged.connect(self.itemChanged)
         layout.addWidget(self.tree)
 
@@ -175,6 +175,30 @@ class ScntocEditor(QtGui.QWidget):
             print 'Unable to save scntoc:', err
         else:
             self.close()
+
+    def show_modal(self):
+        '''
+            This method is from jo benayoun from the XSI mailing list.
+        '''
+        import ctypes
+        import ctypes.wintypes
+        anchor = self.parentWidget()
+
+        ctypes.pythonapi.PyCObject_AsVoidPtr.restype = ctypes.c_void_p
+        ctypes.pythonapi.PyCObject_AsVoidPtr.argtypes = (ctypes.py_object, )
+        ctypes.windll.user32.GetParent.argtypes = (ctypes.wintypes.HWND, )
+        ctypes.windll.user32.GetParent.restype = ctypes.wintypes.HWND
+        ctypes.windll.user32.EnableWindow.argtypes = (ctypes.wintypes.HWND, ctypes.wintypes.BOOL)
+        ctypes.windll.user32.EnableWindow.restype = ctypes.c_int
+
+        hwnd = ctypes.pythonapi.PyCObject_AsVoidPtr(anchor.winId().ascobject())
+        hwnd = ctypes.windll.user32.GetParent(ctypes.wintypes.HWND(hwnd))
+        ctypes.windll.user32.EnableWindow(hwnd, 0)
+        self.exec_()
+        self.close()
+        ctypes.windll.user32.EnableWindow(hwnd, 1)
+        ctypes.windll.user32.SetActiveWindow(hwnd)
+        return None
 
 
 def run_editor_gui(scntoc_object):

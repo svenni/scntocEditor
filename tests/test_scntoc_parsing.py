@@ -73,3 +73,13 @@ class TestParsing(unittest.TestCase):
 
         print prettify(st.xml())
         #self.assertEquals(ET.tostring(st.xml()), xml_elem.tostring())
+
+class TestBackupCreation(unittest.TestCase):
+    expected_backup_path = demo1_path + '.bak'
+    def tearDown(self):
+        os.remove(self.expected_backup_path)
+
+    def test_parsing_with_backup(self):
+        st = scntoc.SCNTOC.from_file(demo1_path, backup=True)
+        assert os.path.exists(self.expected_backup_path)
+
