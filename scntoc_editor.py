@@ -33,6 +33,17 @@ class ScntocEditor(QtGui.QDialog):
         self.setLayout(layout)
         self.setContentsMargins(0, 0, 0, 0)
 
+        # extra buttons to toggle all on/off
+        self.toggleState = QtCore.Qt.Checked
+
+        extra_layout = QtGui.QHBoxLayout()
+        extra_layout.setContentsMargins(5,5,5,0)
+        self.toggle_button = QtGui.QPushButton('Toggle all off')
+        self.toggle_button.clicked.connect(self.toggle_checked)
+        extra_layout.addWidget(self.toggle_button)
+        extra_layout.addStretch()
+        layout.addLayout(extra_layout)
+
         # build the model/resolution tree
         self.tree = QtGui.QTreeWidget(self)
         self.tree.setColumnCount(2)
@@ -96,6 +107,7 @@ class ScntocEditor(QtGui.QDialog):
             model_item.setExpanded(True)
 
         self.tree.resizeColumnToContents(0)
+
 
     def itemChanged(self, item, column):
         if item.parent() is None:
@@ -175,6 +187,22 @@ class ScntocEditor(QtGui.QDialog):
             print 'Unable to save scntoc:', err
         else:
             self.close()
+
+    def toggle_checked(self):
+        if self.toggleState == QtCore.Qt.Checked:
+            self.toggleState = QtCore.Qt.Unchecked
+        else:
+            self.toggleState = QtCore.Qt.Checked
+        for i in range(self.tree.topLevelItemCount()):
+            tli = self.tree.topLevelItem(i)
+            tli.setCheckState(0, self.toggleState)
+
+        if self.toggleState == QtCore.Qt.Checked:
+            self.toggle_button.setText('Toggle all off')
+        else:
+            self.toggle_button.setText('Toggle all on')
+
+        
 
     def show_modal(self):
         '''
